@@ -1,0 +1,1282 @@
+/* ============================================
+   Accelvia DataForge – Admin Styles
+   Premium Dark Mode with Glassmorphism
+   ============================================ */
+
+:root {
+    --ac-primary: #6366f1;
+    --ac-primary-glow: rgba(99, 102, 241, 0.4);
+    --ac-primary-hover: #4f46e5;
+    --ac-success: #10b981;
+    --ac-success-glow: rgba(16, 185, 129, 0.4);
+    --ac-danger: #ef4444;
+    --ac-danger-glow: rgba(239, 68, 68, 0.4);
+    --ac-warning: #f59e0b;
+    --ac-dark: #0f111a;
+    --ac-darker: #090a0f;
+    --ac-card: #1e2133;
+    --ac-card-hover: #252840;
+    --ac-text: #f3f4f6;
+    --ac-text-muted: #9ca3af;
+    --ac-border: #2d3148;
+    --ac-border-hover: #3d4168;
+    --ac-input-bg: rgba(0, 0, 0, 0.2);
+    --ac-radius: 12px;
+    --ac-radius-lg: 16px;
+    --ac-transition: all 0.25s ease;
+}
+
+/* ---- Global Overrides ---- */
+.accelvia-df-wrap #wpbody-content,
+.accelvia-df-wrap {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+#wpbody-content:has(.accelvia-df-wrap) {
+    background-color: var(--ac-darker);
+    color: var(--ac-text);
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+.accelvia-df-wrap {
+    margin: 20px 20px 0 0;
+    color: var(--ac-text);
+}
+
+/* ---- Header ---- */
+.accelvia-df-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.accelvia-df-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.accelvia-df-header h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    background: linear-gradient(90deg, #fff, #a5b4fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.accelvia-df-badge-count {
+    background: var(--ac-card);
+    border: 1px solid var(--ac-border);
+    color: var(--ac-text-muted);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.accelvia-df-back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--ac-card);
+    border: 1px solid var(--ac-border);
+    color: var(--ac-text-muted);
+    text-decoration: none;
+    transition: var(--ac-transition);
+}
+
+.accelvia-df-back-link:hover {
+    background: var(--ac-card-hover);
+    color: #fff;
+}
+
+/* ---- Cards (Glassmorphic) ---- */
+.ac-card {
+    background: var(--ac-card);
+    border: 1px solid var(--ac-border);
+    border-radius: var(--ac-radius-lg);
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ac-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+}
+
+.ac-card h2 {
+    color: #fff;
+    font-size: 16px;
+    margin: 0 0 16px 0;
+    font-weight: 600;
+}
+
+/* ---- Buttons ---- */
+.ac-btn {
+    background: var(--ac-primary);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--ac-transition);
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.ac-btn:hover {
+    background: var(--ac-primary-hover);
+    box-shadow: 0 4px 16px var(--ac-primary-glow);
+    transform: translateY(-1px);
+    color: #fff;
+}
+
+.ac-btn:active {
+    transform: translateY(0);
+}
+
+.ac-btn.outline {
+    background: transparent;
+    border: 1px solid var(--ac-border);
+    color: var(--ac-text-muted);
+}
+
+.ac-btn.outline:hover {
+    border-color: var(--ac-border-hover);
+    color: #fff;
+    box-shadow: none;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.ac-btn.danger {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: var(--ac-danger);
+}
+
+.ac-btn.danger:hover {
+    background: rgba(239, 68, 68, 0.2);
+    box-shadow: 0 4px 16px var(--ac-danger-glow);
+}
+
+.accelvia-df-btn-sm {
+    padding: 6px 10px;
+    font-size: 13px;
+}
+
+.accelvia-df-btn-sm .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    line-height: 1;
+}
+
+/* ---- Badges ---- */
+.ac-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--ac-primary);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* ---- Form Elements ---- */
+.ac-form-group {
+    margin-bottom: 16px;
+}
+
+.ac-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--ac-text-muted);
+    font-size: 14px;
+}
+
+.ac-form-group input[type="text"],
+.ac-form-group input[type="number"],
+.ac-form-group select,
+.accelvia-df-select {
+    width: 100%;
+    background: var(--ac-input-bg);
+    border: 1px solid var(--ac-border);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: var(--ac-transition);
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.ac-form-group input:focus,
+.ac-form-group select:focus,
+.accelvia-df-select:focus {
+    border-color: var(--ac-primary);
+    box-shadow: 0 0 0 3px var(--ac-primary-glow);
+    outline: none;
+}
+
+.ac-form-group input::placeholder {
+    color: #555;
+}
+
+/* ---- Toggle Switches ---- */
+.accelvia-df-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px 0;
+    color: var(--ac-text-muted);
+    font-size: 14px;
+}
+
+.accelvia-df-toggle input[type="checkbox"] {
+    position: relative;
+    width: 40px;
+    height: 22px;
+    appearance: none;
+    -webkit-appearance: none;
+    background: var(--ac-border);
+    border-radius: 11px;
+    cursor: pointer;
+    transition: var(--ac-transition);
+    flex-shrink: 0;
+}
+
+.accelvia-df-toggle input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: var(--ac-transition);
+}
+
+.accelvia-df-toggle input[type="checkbox"]:checked {
+    background: var(--ac-primary);
+}
+
+.accelvia-df-toggle input[type="checkbox"]:checked::after {
+    left: 21px;
+}
+
+.accelvia-df-options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 24px;
+}
+
+/* ---- Empty State ---- */
+.accelvia-df-empty-state {
+    text-align: center;
+    padding: 60px 40px;
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+.accelvia-df-empty-icon {
+    font-size: 64px;
+    margin-bottom: 16px;
+    opacity: 0.6;
+}
+
+.accelvia-df-empty-state h2 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.accelvia-df-empty-state p {
+    color: var(--ac-text-muted);
+    margin-bottom: 24px;
+}
+
+/* ---- Chart Grid (List View) ---- */
+.accelvia-df-chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.accelvia-df-chart-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.accelvia-df-chart-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.accelvia-df-chart-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.accelvia-df-type-icon {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.accelvia-df-chart-meta h3 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+}
+
+.accelvia-df-shortcode-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ac-input-bg);
+    border: 1px solid var(--ac-border);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+}
+
+.accelvia-df-shortcode-display {
+    flex: 1;
+    color: var(--ac-text-muted);
+    font-size: 12px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    background: none;
+}
+
+.accelvia-df-copy-btn {
+    background: transparent;
+    border: none;
+    color: var(--ac-text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: var(--ac-transition);
+    display: inline-flex;
+    align-items: center;
+}
+
+.accelvia-df-copy-btn:hover {
+    color: var(--ac-primary);
+    background: rgba(99, 102, 241, 0.1);
+}
+
+.accelvia-df-copy-btn .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.accelvia-df-chart-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accelvia-df-date {
+    color: var(--ac-text-muted);
+    font-size: 12px;
+}
+
+.accelvia-df-actions {
+    display: flex;
+    gap: 6px;
+}
+
+/* ---- Chart Builder Layout ---- */
+.accelvia-df-builder {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.accelvia-df-builder-config {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.accelvia-df-builder-config::-webkit-scrollbar {
+    width: 4px;
+}
+
+.accelvia-df-builder-config::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.accelvia-df-builder-config::-webkit-scrollbar-thumb {
+    background: var(--ac-border);
+    border-radius: 4px;
+}
+
+.accelvia-df-builder-preview {
+    position: sticky;
+    top: 42px;
+}
+
+.accelvia-df-preview-card {
+    min-height: 420px;
+}
+
+.accelvia-df-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.accelvia-df-preview-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--ac-success);
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.accelvia-df-preview-badge::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--ac-success);
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.accelvia-df-chart-preview {
+    min-height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.accelvia-df-preview-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 350px;
+    color: var(--ac-text-muted);
+    text-align: center;
+}
+
+.accelvia-df-preview-placeholder-icon {
+    font-size: 48px;
+    margin-bottom: 12px;
+    opacity: 0.4;
+}
+
+.accelvia-df-preview-placeholder p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* ---- Chart Type Selector ---- */
+.accelvia-df-type-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.accelvia-df-type-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 8px;
+    background: var(--ac-input-bg);
+    border: 2px solid var(--ac-border);
+    border-radius: var(--ac-radius);
+    cursor: pointer;
+    transition: var(--ac-transition);
+    color: var(--ac-text-muted);
+}
+
+.accelvia-df-type-btn:hover {
+    border-color: var(--ac-border-hover);
+    background: var(--ac-card-hover);
+    color: #fff;
+}
+
+.accelvia-df-type-btn.active {
+    border-color: var(--ac-primary);
+    background: rgba(99, 102, 241, 0.1);
+    color: #fff;
+    box-shadow: 0 0 0 3px var(--ac-primary-glow);
+}
+
+.accelvia-df-type-btn .accelvia-df-type-icon {
+    font-size: 24px;
+}
+
+.accelvia-df-type-label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* ---- Data Entry Table ---- */
+.accelvia-df-data-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 32px;
+    gap: 8px;
+    margin-bottom: 8px;
+    padding: 0 4px;
+    color: var(--ac-text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.accelvia-df-data-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 32px;
+    gap: 8px;
+    margin-bottom: 6px;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.accelvia-df-data-row input {
+    width: 100%;
+    background: var(--ac-input-bg);
+    border: 1px solid var(--ac-border);
+    color: #fff;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: var(--ac-transition);
+    font-size: 13px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.accelvia-df-data-row input:focus {
+    border-color: var(--ac-primary);
+    box-shadow: 0 0 0 2px var(--ac-primary-glow);
+    outline: none;
+}
+
+.accelvia-df-data-row input::placeholder {
+    color: #555;
+}
+
+.accelvia-df-remove-row {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 36px;
+    background: transparent;
+    border: none;
+    color: var(--ac-text-muted);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: var(--ac-transition);
+    padding: 0;
+}
+
+.accelvia-df-remove-row:hover {
+    color: var(--ac-danger);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.accelvia-df-remove-row .dashicons {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+}
+
+#accelvia-df-add-row {
+    margin-top: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* ---- Color Palette Selector ---- */
+.accelvia-df-palette-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.accelvia-df-palette-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--ac-input-bg);
+    border: 2px solid var(--ac-border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--ac-transition);
+    color: var(--ac-text-muted);
+    width: 100%;
+}
+
+.accelvia-df-palette-btn:hover {
+    border-color: var(--ac-border-hover);
+    color: #fff;
+}
+
+.accelvia-df-palette-btn.active {
+    border-color: var(--ac-primary);
+    background: rgba(99, 102, 241, 0.08);
+    color: #fff;
+}
+
+.accelvia-df-palette-label {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.accelvia-df-palette-preview {
+    display: flex;
+    gap: 4px;
+}
+
+.accelvia-df-palette-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ---- Toast Notification ---- */
+.accelvia-df-toast {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    z-index: 99999;
+    background: var(--ac-card);
+    border: 1px solid var(--ac-success);
+    border-radius: var(--ac-radius);
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.accelvia-df-toast-message {
+    color: var(--ac-success);
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.accelvia-df-toast-shortcode {
+    background: var(--ac-input-bg);
+    border: 1px solid var(--ac-border);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 12px;
+    color: var(--ac-text-muted);
+}
+
+/* ---- Loading State ---- */
+.accelvia-df-saving .ac-btn {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* ---- Data Tabs & Series Panels (Phase 2) ---- */
+.accelvia-df-data-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--ac-border);
+    padding-bottom: 12px;
+}
+
+.accelvia-df-data-tab {
+    background: transparent;
+    border: none;
+    color: var(--ac-text-muted);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--ac-transition);
+}
+
+.accelvia-df-data-tab:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.accelvia-df-data-tab.active {
+    color: #fff;
+    background: var(--ac-primary);
+}
+
+.accelvia-df-data-panel {
+    display: none;
+}
+
+.accelvia-df-data-panel.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.accelvia-df-series-panel {
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--ac-border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.accelvia-df-series-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.accelvia-df-series-name-input {
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    color: #fff !important;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 4px 8px !important;
+    margin-left: -8px;
+    border-radius: 4px;
+    width: 200px !important;
+}
+
+.accelvia-df-series-name-input:focus {
+    border-color: var(--ac-primary) !important;
+    background: var(--ac-input-bg) !important;
+}
+
+.accelvia-df-remove-series {
+    background: transparent;
+    border: none;
+    color: var(--ac-text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: var(--ac-transition);
+}
+
+.accelvia-df-remove-series:hover {
+    color: var(--ac-danger);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* ---- CSV Import UI ---- */
+.accelvia-df-csv-upload-zone {
+    border: 2px dashed var(--ac-border);
+    border-radius: var(--ac-radius);
+    padding: 40px 20px;
+    text-align: center;
+    transition: var(--ac-transition);
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.accelvia-df-csv-upload-zone.dragover {
+    border-color: var(--ac-primary);
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.accelvia-df-csv-upload-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+    opacity: 0.7;
+}
+
+.accelvia-df-csv-upload-zone p {
+    color: var(--ac-text-muted);
+    margin-bottom: 16px;
+}
+
+.accelvia-df-csv-max-size {
+    display: block;
+    margin-top: 12px;
+    font-size: 11px;
+    color: var(--ac-text-muted);
+}
+
+.accelvia-df-csv-mapping-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.accelvia-df-csv-preview-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--ac-border);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.accelvia-df-csv-preview-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    text-align: left;
+}
+
+.accelvia-df-csv-preview-table th {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px 14px;
+    color: var(--ac-text-muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--ac-border);
+}
+
+.accelvia-df-csv-preview-table td {
+    padding: 8px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.accelvia-df-csv-preview-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.accelvia-df-csv-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* ---- Modals ---- */
+.accelvia-df-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accelvia-df-modal-backdrop {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+}
+
+.accelvia-df-modal-content {
+    position: relative;
+    background: var(--ac-card);
+    border: 1px solid var(--ac-border);
+    border-radius: var(--ac-radius-lg);
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.95); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.accelvia-df-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--ac-border);
+}
+
+.accelvia-df-modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.accelvia-df-modal-close {
+    background: transparent;
+    border: none;
+    color: var(--ac-text-muted);
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+    transition: var(--ac-transition);
+}
+
+.accelvia-df-modal-close:hover {
+    color: #fff;
+}
+
+.accelvia-df-modal-body {
+    padding: 24px;
+}
+
+.accelvia-df-badge-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.ac-badge.source {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--ac-warning);
+    border-color: rgba(245, 158, 11, 0.2);
+}
+
+/* ---- Phase 4: Dashboard Builder (Enhanced) ---- */
+.accelvia-df-dash-builder {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.accelvia-df-dash-sidebar .ac-card {
+    position: sticky;
+    top: 40px;
+}
+
+.accelvia-df-chart-picker-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.accelvia-df-chart-picker-item {
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--ac-border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: grab;
+    transition: all 0.2s;
+}
+
+.accelvia-df-chart-picker-item:hover {
+    border-color: var(--ac-primary);
+    background: rgba(99, 102, 241, 0.06);
+    transform: translateY(-1px);
+}
+
+.accelvia-df-chart-picker-item:active {
+    cursor: grabbing;
+}
+
+.accelvia-df-picker-icon {
+    font-size: 20px;
+    margin-right: 12px;
+}
+
+.accelvia-df-picker-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.accelvia-df-picker-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ac-text);
+}
+
+.accelvia-df-picker-type {
+    font-size: 11px;
+    color: var(--ac-text-muted);
+}
+
+.accelvia-df-picker-add {
+    background: none;
+    border: none;
+    color: var(--ac-text-muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.accelvia-df-picker-add:hover {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--ac-primary);
+}
+
+.accelvia-df-dash-grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Grid Canvas */
+.accelvia-df-dash-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    min-height: 300px;
+    background: rgba(0, 0, 0, 0.15);
+    border: 2px dashed var(--ac-border);
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.2s;
+}
+
+.accelvia-df-dash-grid.drag-active {
+    background: rgba(99, 102, 241, 0.05);
+    border-color: var(--ac-primary);
+    box-shadow: inset 0 0 20px rgba(99, 102, 241, 0.05);
+}
+
+.accelvia-df-dash-grid-empty {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--ac-text-muted);
+    height: 100%;
+    min-height: 200px;
+}
+
+/* Widget Card */
+.accelvia-df-dash-widget {
+    background: var(--ac-card);
+    border: 1px solid var(--ac-border);
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.accelvia-df-dash-widget:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.accelvia-df-dash-widget-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--ac-border);
+    font-size: 12px;
+    color: var(--ac-text);
+    cursor: grab;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px 10px 0 0;
+}
+
+.accelvia-df-dash-widget-header:active {
+    cursor: grabbing;
+}
+
+.accelvia-df-dash-widget-drag {
+    color: var(--ac-text-muted);
+    flex-shrink: 0;
+}
+
+.accelvia-df-dash-widget-drag .dashicons {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+}
+
+.accelvia-df-dash-widget-title {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.accelvia-df-dash-widget-title small {
+    color: var(--ac-text-muted);
+}
+
+.accelvia-df-dash-widget-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.accelvia-df-dash-widget-span {
+    font-size: 11px;
+    padding: 2px 20px 2px 6px;
+    min-height: 24px;
+    background: var(--ac-input-bg);
+    border: 1px solid var(--ac-border);
+    color: #fff;
+    border-radius: 4px;
+}
+
+.accelvia-df-dash-widget-remove {
+    background: none;
+    border: none;
+    color: var(--ac-danger);
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.accelvia-df-dash-widget-remove:hover {
+    background: rgba(239, 68, 68, 0.1);
+}
+
+/* Live Preview Container */
+.accelvia-df-dash-widget-preview {
+    padding: 8px;
+    border-radius: 0 0 10px 10px;
+    flex: 1;
+    min-height: 200px;
+    overflow: hidden;
+}
+
+/* jQuery UI Sortable Placeholder */
+.accelvia-df-dash-sortable-placeholder {
+    background: rgba(99, 102, 241, 0.08);
+    border: 2px dashed var(--ac-primary);
+    border-radius: 10px;
+    opacity: 0.6;
+    min-height: 200px;
+}
+
+/* jQuery UI Sortable — active drag state */
+.accelvia-df-dash-widget.ui-sortable-helper {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    transform: rotate(1deg);
+    z-index: 100;
+}
+
+/* Loading Skeleton in dashboard builder widgets */
+.accelvia-df-dash-widget-preview .accelvia-df-loading-skeleton {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.03) 25%,
+        rgba(255, 255, 255, 0.06) 50%,
+        rgba(255, 255, 255, 0.03) 75%
+    );
+    background-size: 200% 100%;
+    animation: accelvia-df-shimmer 1.5s infinite;
+    border-radius: 6px;
+}
+
+@keyframes accelvia-df-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1200px) {
+    .accelvia-df-builder {
+        grid-template-columns: 1fr;
+    }
+
+    .accelvia-df-builder-config {
+        max-height: none;
+    }
+
+    .accelvia-df-builder-preview {
+        position: static;
+    }
+    
+    .accelvia-df-dash-builder {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .accelvia-df-chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .accelvia-df-type-selector {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .accelvia-df-options-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .accelvia-df-csv-mapping-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .accelvia-df-dash-widget {
+        grid-column: 1 / -1 !important;
+    }
+}
+
+/* ---- Fix WP autofill styles ---- */
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px var(--ac-card) inset !important;
+    -webkit-text-fill-color: white !important;
+}
+
+/* ---- Override ApexCharts tooltip for dark theme ---- */
+.accelvia-df-chart-preview .apexcharts-tooltip,
+.accelvia-df-dash-widget-preview .apexcharts-tooltip {
+    background: var(--ac-card) !important;
+    border: 1px solid var(--ac-border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+.accelvia-df-chart-preview .apexcharts-tooltip-title,
+.accelvia-df-dash-widget-preview .apexcharts-tooltip-title {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border-bottom-color: var(--ac-border) !important;
+}
+

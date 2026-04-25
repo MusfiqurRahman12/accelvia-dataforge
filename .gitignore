@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+vendor/
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build artifacts
+*.map
+*.log
+
+# Docker
+docker-compose.yml
+.wp-env.json
+
+# Gemini
+.gemini/
