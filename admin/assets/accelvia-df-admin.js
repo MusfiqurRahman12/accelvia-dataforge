@@ -997,6 +997,12 @@
             previewConfig.grid = previewConfig.grid || {};
             previewConfig.grid.borderColor = '#2d3148';
 
+            const containerWidth = $container[0].getBoundingClientRect().width || $container[0].offsetWidth;
+            if (containerWidth > 0 && containerWidth < 400) {
+                previewConfig.legend = previewConfig.legend || {};
+                previewConfig.legend.position = 'bottom';
+            }
+
             $container.html('');
 
             try {

@@ -82,9 +82,17 @@ class Accelvia_DF_Chart_Model {
             ),
             'responsive' => array(
                 array(
+                    'breakpoint' => 600,
+                    'options'    => array(
+                        'chart'  => array( 'height' => 300 ),
+                        'legend' => array( 'position' => 'bottom' ),
+                    ),
+                ),
+                array(
                     'breakpoint' => 480,
                     'options'    => array(
                         'chart' => array( 'height' => 280 ),
+                        'legend' => array( 'position' => 'bottom' ),
                     ),
                 ),
             ),

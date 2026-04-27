@@ -59,6 +59,16 @@
                     config.chart.animations.dynamicAnimation = { enabled: true, speed: 350 };
                 }
 
+                // Adjust for narrow containers (e.g. span 3 or span 4 widgets)
+                var containerWidth = container.getBoundingClientRect().width || container.offsetWidth;
+                if (containerWidth > 0 && containerWidth < 400) {
+                    config.legend = config.legend || {};
+                    config.legend.position = 'bottom';
+                    
+                    config.chart.toolbar = config.chart.toolbar || {};
+                    config.chart.toolbar.show = false;
+                }
+
                 // Remove skeleton
                 var skeleton = container.querySelector('.accelvia-df-loading-skeleton');
                 if (skeleton) skeleton.remove();
