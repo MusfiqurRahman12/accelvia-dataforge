@@ -63,7 +63,16 @@ $accelvia_df_type_icons = array(
                     <label for="accelvia-df-dashboard-title"><?php esc_html_e( 'Dashboard Title', 'accelvia-dataforge' ); ?></label>
                     <input type="text" id="accelvia-df-dashboard-title" placeholder="<?php esc_attr_e( 'e.g. Sales Overview', 'accelvia-dataforge' ); ?>" />
                 </div>
-            </div>
+                <div class="ac-form-group" style="margin-top:16px;">
+                    <label for="accelvia-df-dashboard-height"><?php esc_html_e( 'Widget Height', 'accelvia-dataforge' ); ?></label>
+                    <input type="text" id="accelvia-df-dashboard-height" placeholder="auto" value="auto" />
+                    <p style="font-size:12px;color:var(--ac-text-muted);margin:4px 0 0 0;"><?php esc_html_e( 'Pixels (e.g. 350) or "auto"', 'accelvia-dataforge' ); ?></p>
+                </div>
+                <div class="ac-form-group" style="margin-top:16px;">
+                    <label for="accelvia-df-dashboard-width"><?php esc_html_e( 'Dashboard Width', 'accelvia-dataforge' ); ?></label>
+                    <input type="text" id="accelvia-df-dashboard-width" placeholder="100%" value="100%" />
+                    <p style="font-size:12px;color:var(--ac-text-muted);margin:4px 0 0 0;"><?php esc_html_e( 'Percentage or pixels (e.g. 100%, 1200px)', 'accelvia-dataforge' ); ?></p>
+                </div>
 
             <div class="ac-card">
                 <h2><?php esc_html_e( 'Available Charts', 'accelvia-dataforge' ); ?></h2>

@@ -518,17 +518,18 @@ class Accelvia_DF_Admin {
         }
 
         $layout = json_decode( $layout_raw, true );
-        if ( ! is_array( $layout ) ) {
-            wp_send_json_error( array( 'message' => __( 'Invalid layout data.', 'accelvia-dataforge' ) ) );
-        }
+        
+        // Sanitize layout data
+        $is_object_format = isset( $layout['widgets'] ) && is_array( $layout['widgets'] );
+        $widgets = $is_object_format ? $layout['widgets'] : ( is_array( $layout ) ? $layout : array() );
+        $settings = $is_object_format && isset( $layout['settings'] ) ? $layout['settings'] : array();
 
-        // Sanitize layout widgets
-        $clean_layout = array();
-        foreach ( $layout as $widget ) {
+        $clean_widgets = array();
+        foreach ( $widgets as $widget ) {
             if ( ! is_array( $widget ) || empty( $widget['chart_id'] ) ) {
                 continue;
             }
-            $clean_layout[] = array(
+            $clean_widgets[] = array(
                 'chart_id'  => absint( $widget['chart_id'] ),
                 'col_start' => absint( $widget['col_start'] ?? 1 ),
                 'col_span'  => min( 12, max( 1, absint( $widget['col_span'] ?? 6 ) ) ),
@@ -536,9 +537,19 @@ class Accelvia_DF_Admin {
             );
         }
 
+        $clean_settings = array(
+            'width'  => isset( $settings['width'] ) ? sanitize_text_field( $settings['width'] ) : '100%',
+            'height' => isset( $settings['height'] ) ? sanitize_text_field( $settings['height'] ) : 'auto',
+        );
+
+        $final_layout = array(
+            'settings' => $clean_settings,
+            'widgets'  => $clean_widgets,
+        );
+
         $data = array(
             'title'       => $title,
-            'layout_json' => wp_json_encode( $clean_layout ),
+            'layout_json' => wp_json_encode( $final_layout ),
             'status'      => 'publish',
         );
 

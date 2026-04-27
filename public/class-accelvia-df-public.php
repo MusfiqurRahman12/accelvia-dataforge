@@ -300,8 +300,16 @@ class Accelvia_DF_Public {
             return '<!-- Accelvia DataForge: Dashboard not found -->';
         }
 
-        $layout = json_decode( $dashboard->layout_json, true );
-        if ( ! is_array( $layout ) || empty( $layout ) ) {
+        $layout_data = json_decode( $dashboard->layout_json, true );
+        if ( ! is_array( $layout_data ) || empty( $layout_data ) ) {
+            return '<!-- Accelvia DataForge: Dashboard has no charts -->';
+        }
+
+        $is_object_format = isset( $layout_data['widgets'] ) && is_array( $layout_data['widgets'] );
+        $layout = $is_object_format ? $layout_data['widgets'] : $layout_data;
+        $settings = $is_object_format && isset( $layout_data['settings'] ) ? $layout_data['settings'] : array();
+
+        if ( empty( $layout ) ) {
             return '<!-- Accelvia DataForge: Dashboard has no charts -->';
         }
 
@@ -341,7 +349,12 @@ class Accelvia_DF_Public {
             $theme_class = ' accelvia-df-theme-' . $theme;
         }
 
-        $output = '<div class="accelvia-df-dashboard-wrapper' . esc_attr( $theme_class ) . '">';
+        $wrapper_style = '';
+        if ( ! empty( $settings['width'] ) && '100%' !== $settings['width'] ) {
+            $wrapper_style = 'max-width: ' . esc_attr( $settings['width'] ) . '; margin-left: auto; margin-right: auto;';
+        }
+
+        $output = '<div class="accelvia-df-dashboard-wrapper' . esc_attr( $theme_class ) . '" style="' . esc_attr( $wrapper_style ) . '">';
 
         // Dashboard title
         $output .= '<h2 class="accelvia-df-dashboard-title">' . esc_html( $dashboard->title ) . '</h2>';
@@ -391,7 +404,7 @@ class Accelvia_DF_Public {
             $atts = array(
                 'theme'     => $theme,
                 'title'     => 'show',
-                'height'    => '',
+                'height'    => ! empty( $settings['height'] ) && 'auto' !== $settings['height'] ? $settings['height'] : '',
                 'width'     => '',
                 'colors'    => '',
                 'animation' => '',

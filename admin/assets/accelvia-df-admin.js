@@ -99,7 +99,7 @@
             debounceTimer = setTimeout(updatePreview, 300);
         });
 
-        // Option toggles
+        // Option toggles and inputs
         $(document).on('change', '[id^="accelvia-df-opt-"]', function () {
             updatePreview();
         });
@@ -160,6 +160,8 @@
             if (config.chart && config.chart.animations) $('#accelvia-df-opt-animation').prop('checked', config.chart.animations.enabled !== false);
             if (config.dataLabels) $('#accelvia-df-opt-datalabels').prop('checked', config.dataLabels.enabled === true);
             if (config.chart && config.chart.toolbar) $('#accelvia-df-opt-toolbar').prop('checked', config.chart.toolbar.show !== false);
+            if (config.chart && config.chart.height) $('#accelvia-df-opt-height').val(config.chart.height);
+            if (config.chart && config.chart.width) $('#accelvia-df-opt-width').val(config.chart.width);
 
             // Palette
             if (config.colors && typeof accelvia_df !== 'undefined') {
@@ -511,11 +513,14 @@
         const colors = palettes[currentPalette] || ['#6366f1', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
         const isPieType = ['pie', 'donut', 'radialBar'].includes(currentChartType);
 
+        const heightVal = $('#accelvia-df-opt-height').val() || '350';
+        const widthVal = $('#accelvia-df-opt-width').val() || '100%';
+
         const config = {
             chart: {
                 type: currentChartType,
-                height: 350,
-                width: '100%',
+                height: heightVal,
+                width: widthVal,
                 toolbar: { show: $('#accelvia-df-opt-toolbar').is(':checked') },
                 animations: { enabled: $('#accelvia-df-opt-animation').is(':checked') },
                 background: 'transparent',
@@ -840,11 +845,17 @@
         // Populate from localized data if editing
         if (typeof accelvia_df !== 'undefined' && accelvia_df.editing_dashboard) {
             $('#accelvia-df-dashboard-title').val(accelvia_df.editing_dashboard.title || '');
-            const layout = accelvia_df.editing_dashboard.layout || [];
+            const layoutData = accelvia_df.editing_dashboard.layout || [];
+            const isObject = !Array.isArray(layoutData) && layoutData.widgets;
+            const widgets = isObject ? layoutData.widgets : layoutData;
+            const settings = isObject ? layoutData.settings : { width: '100%', height: 'auto' };
             
-            if (layout.length > 0) {
+            $('#accelvia-df-dashboard-width').val(settings.width || '100%');
+            $('#accelvia-df-dashboard-height').val(settings.height || 'auto');
+            
+            if (widgets.length > 0) {
                 $('#accelvia-df-grid-empty').hide();
-                layout.forEach(widget => {
+                widgets.forEach(widget => {
                     const $pickerItem = $(`.accelvia-df-chart-picker-item[data-chart-id="${widget.chart_id}"]`);
                     if ($pickerItem.length) {
                         addChartToGrid($pickerItem, widget.col_span);
@@ -1015,16 +1026,24 @@
                 return;
             }
 
-            const layout = [];
+            const layoutWidgets = [];
             widgets.each(function(index) {
                 const span = parseInt($(this).find('.accelvia-df-dash-widget-span').val(), 10) || 6;
-                layout.push({
+                layoutWidgets.push({
                     chart_id: $(this).data('chart-id'),
                     col_start: 1,
                     col_span: span,
                     row_order: index
                 });
             });
+
+            const layoutObj = {
+                settings: {
+                    width: $('#accelvia-df-dashboard-width').val() || '100%',
+                    height: $('#accelvia-df-dashboard-height').val() || 'auto'
+                },
+                widgets: layoutWidgets
+            };
 
             $btn.addClass('loading').prop('disabled', true);
 
@@ -1033,7 +1052,7 @@
                 nonce: accelvia_df.nonce,
                 dashboard_id: dashId,
                 title: title,
-                layout: JSON.stringify(layout)
+                layout: JSON.stringify(layoutObj)
             }, function(res) {
                 $btn.removeClass('loading').prop('disabled', false);
                 if (res.success) {

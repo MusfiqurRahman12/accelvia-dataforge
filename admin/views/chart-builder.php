@@ -197,6 +197,16 @@ $accelvia_df_palettes = Accelvia_DF_Chart_Model::get_color_palettes();
                         <span><?php esc_html_e( 'Toolbar', 'accelvia-dataforge' ); ?></span>
                     </label>
                 </div>
+                <div class="ac-form-group" style="margin-top: 16px;">
+                    <label for="accelvia-df-opt-height"><?php esc_html_e( 'Height', 'accelvia-dataforge' ); ?></label>
+                    <input type="text" id="accelvia-df-opt-height" placeholder="350" value="350" />
+                    <p style="font-size:12px;color:var(--ac-text-muted);margin:4px 0 0 0;"><?php esc_html_e( 'Number in pixels (e.g. 350) or "auto"', 'accelvia-dataforge' ); ?></p>
+                </div>
+                <div class="ac-form-group" style="margin-top: 12px;">
+                    <label for="accelvia-df-opt-width"><?php esc_html_e( 'Width', 'accelvia-dataforge' ); ?></label>
+                    <input type="text" id="accelvia-df-opt-width" placeholder="100%" value="100%" />
+                    <p style="font-size:12px;color:var(--ac-text-muted);margin:4px 0 0 0;"><?php esc_html_e( 'Percentage or pixels (e.g. 100%, 500px)', 'accelvia-dataforge' ); ?></p>
+                </div>
             </div>
         </div>
 
