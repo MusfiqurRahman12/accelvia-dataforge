@@ -188,11 +188,21 @@
 /* Widget Cell */
 .accelvia-df-dashboard-widget {
     min-height: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Chart wrappers inside the dashboard inherit full width */
+/* Chart wrappers inside the dashboard inherit full height */
 .accelvia-df-dashboard-widget .accelvia-df-chart-wrapper {
     margin: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.accelvia-df-dashboard-widget .accelvia-df-chart {
+    flex: 1;
+    min-height: 0;
 }
 
 /* Chart title inside dashboard widgets */

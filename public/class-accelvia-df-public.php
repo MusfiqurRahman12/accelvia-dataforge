@@ -224,7 +224,7 @@ class Accelvia_DF_Public {
 
         // Height
         if ( ! empty( $atts['height'] ) ) {
-            $config['chart']['height'] = absint( $atts['height'] );
+            $config['chart']['height'] = sanitize_text_field( $atts['height'] );
         }
 
         // Colors

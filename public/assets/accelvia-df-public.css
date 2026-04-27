@@ -221,7 +221,14 @@
 
 .accelvia-df-dashboard-widget .accelvia-df-chart-wrapper {
     margin: 0;
-    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.accelvia-df-dashboard-widget .accelvia-df-chart {
+    flex: 1;
+    min-height: 0;
 }
 
 /* Disable redundant hover-lift on chart wrappers inside dashboards */

@@ -989,10 +989,10 @@
                 return;
             }
 
-            // Clone config for preview (smaller height, no toolbar)
+            // Clone config for preview (full height, no toolbar)
             const previewConfig = JSON.parse(JSON.stringify(config));
             previewConfig.chart = previewConfig.chart || {};
-            previewConfig.chart.height = 200;
+            previewConfig.chart.height = '100%';
             previewConfig.chart.width = '100%';
             previewConfig.chart.toolbar = { show: false };
             previewConfig.chart.sparkline = { enabled: false };
