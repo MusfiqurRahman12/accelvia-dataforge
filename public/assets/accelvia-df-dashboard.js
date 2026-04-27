@@ -39,6 +39,8 @@
 
         // Render each chart
         charts.forEach(function (container) {
+            if (container._accelvia_rendered) return;
+            
             try {
                 var configStr = container.getAttribute('data-chart-config');
                 if (!configStr) return;
@@ -81,6 +83,7 @@
                 chart.render();
                 chartInstances.push(chart);
                 container._accelvia_chart = chart;
+                container._accelvia_rendered = true;
                 container._accelvia_original_config = originalConfig;
 
             } catch (e) {

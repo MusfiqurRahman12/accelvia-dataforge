@@ -20,7 +20,12 @@
      * Uses IntersectionObserver for scroll-triggered rendering.
      */
     function initAllCharts() {
-        var containers = document.querySelectorAll('.accelvia-df-chart');
+        var allContainers = Array.from(document.querySelectorAll('.accelvia-df-chart'));
+        
+        // Filter out charts that are inside a dashboard (handled by accelvia-df-dashboard.js)
+        var containers = allContainers.filter(function(container) {
+            return !container.closest('.accelvia-df-dashboard-wrapper');
+        });
 
         if (!containers.length) {
             return;
