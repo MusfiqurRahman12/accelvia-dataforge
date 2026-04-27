@@ -56,7 +56,26 @@ $accelvia_df_type_icons = array(
     <input type="hidden" id="accelvia-df-dashboard-id" value="<?php echo esc_attr( $accelvia_df_dash_editing ); ?>" />
 
     <div class="accelvia-df-dash-builder">
-        <!-- LEFT: Chart Picker Sidebar -->
+        <!-- LEFT: Grid Layout Canvas -->
+        <div class="accelvia-df-dash-canvas">
+            <div class="ac-card">
+                <div class="accelvia-df-dash-grid-header">
+                    <h2><?php esc_html_e( 'Layout', 'accelvia-dataforge' ); ?></h2>
+                    <span class="accelvia-df-preview-badge"><?php esc_html_e( '12-column grid', 'accelvia-dataforge' ); ?></span>
+                </div>
+
+                <!-- Grid drop zone -->
+                <div class="accelvia-df-dash-grid" id="accelvia-df-dash-grid">
+                    <div class="accelvia-df-dash-grid-empty" id="accelvia-df-grid-empty">
+                        <span style="font-size:40px;opacity:0.5;">📋</span>
+                        <p><?php esc_html_e( 'Drag charts here to build your dashboard layout.', 'accelvia-dataforge' ); ?></p>
+                    </div>
+                    <!-- Widgets will be inserted here by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT: Chart Picker Sidebar -->
         <div class="accelvia-df-dash-sidebar">
             <div class="ac-card">
                 <div class="ac-form-group">
@@ -73,6 +92,7 @@ $accelvia_df_type_icons = array(
                     <input type="text" id="accelvia-df-dashboard-width" placeholder="100%" value="100%" />
                     <p style="font-size:12px;color:var(--ac-text-muted);margin:4px 0 0 0;"><?php esc_html_e( 'Percentage or pixels (e.g. 100%, 1200px)', 'accelvia-dataforge' ); ?></p>
                 </div>
+            </div>
 
             <div class="ac-card">
                 <h2><?php esc_html_e( 'Available Charts', 'accelvia-dataforge' ); ?></h2>
@@ -108,25 +128,6 @@ $accelvia_df_type_icons = array(
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
-            </div>
-        </div>
-
-        <!-- RIGHT: Grid Layout Canvas -->
-        <div class="accelvia-df-dash-canvas">
-            <div class="ac-card">
-                <div class="accelvia-df-dash-grid-header">
-                    <h2><?php esc_html_e( 'Layout', 'accelvia-dataforge' ); ?></h2>
-                    <span class="accelvia-df-preview-badge"><?php esc_html_e( '12-column grid', 'accelvia-dataforge' ); ?></span>
-                </div>
-
-                <!-- Grid drop zone -->
-                <div class="accelvia-df-dash-grid" id="accelvia-df-dash-grid">
-                    <div class="accelvia-df-dash-grid-empty" id="accelvia-df-grid-empty">
-                        <span style="font-size:40px;opacity:0.5;">📋</span>
-                        <p><?php esc_html_e( 'Drag charts here to build your dashboard layout.', 'accelvia-dataforge' ); ?></p>
-                    </div>
-                    <!-- Widgets will be inserted here by JS -->
-                </div>
             </div>
         </div>
     </div>

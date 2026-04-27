@@ -973,7 +973,7 @@
 /* ---- Phase 4: Dashboard Builder (Enhanced) ---- */
 .accelvia-df-dash-builder {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 1fr 320px;
     gap: 24px;
     align-items: start;
 }
