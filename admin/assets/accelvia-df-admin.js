@@ -535,6 +535,10 @@
             config.labels = data.labels;
             config.colors = colors.slice(0, Math.max(data.series.length, 1));
             
+            if (currentChartType === 'pie' || currentChartType === 'donut') {
+                config.stroke = { show: true, colors: ['#ffffff'], width: 2 };
+            }
+
             if (currentChartType === 'radialBar') {
                 config.plotOptions = {
                     radialBar: {

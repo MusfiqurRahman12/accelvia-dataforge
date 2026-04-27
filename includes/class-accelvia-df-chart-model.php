@@ -105,8 +105,8 @@ class Accelvia_DF_Chart_Model {
                 $base['series'] = array();
                 $base['labels'] = array();
                 unset( $base['xaxis'] );
-                unset( $base['stroke'] );
                 unset( $base['grid'] );
+                $base['stroke'] = array( 'show' => true, 'colors' => array( '#ffffff' ), 'width' => 2 );
                 $base['chart']['animations']['speed'] = 900;
                 $base['plotOptions'] = array(
                     $chart_type => array(
